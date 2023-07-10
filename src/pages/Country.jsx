@@ -17,7 +17,7 @@ export const Country = () => {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const location = useLocation();
-  
+
   const goBackLink = location.state?.from ?? routes.HOME;
 
   useEffect(() => {
@@ -26,7 +26,6 @@ export const Country = () => {
       try {
         const data = await fetchCountry(id);
         setCountry(data);
-        console.log(data);
       } catch (error) {
         setError(error.message);
       } finally {
